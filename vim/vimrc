@@ -1,0 +1,24 @@
+let &runtimepath .= ',' . expand('$HOME/dotfiles/vim')
+call plug#begin('$HOME/dotfiles/vim/plugged')
+
+Plug 'tpope/vim-surround'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'lervag/vimtex'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'w0rp/ale'
+Plug 'chrisbra/DistractFree'
+Plug 'joshdick/onedark.vim'
+Plug 'scrooloose/nerdtree'
+
+call plug#end()
+
+syntax on
+filetype plugin on
+filetype plugin indent on
+
+source $HOME/dotfiles/vim/settings.vim
+source $HOME/dotfiles/vim/functions.vim
+source $HOME/dotfiles/vim/mappings.vim

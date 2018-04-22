@@ -1,0 +1,9 @@
+source ~/.mutt/colors/theme001
+
+set from      = "mail@sjorssparreboom.nl"
+set sendmail  = "/usr/bin/msmtp -a sjorssparreboom.nl"
+
+set mbox      = "+sjorssparreboom.nl/archive"
+set record    = "+sjorssparreboom.nl/sent"
+set postponed = "+sjorssparreboom.nl/draft"
+set trash     = "+sjorssparreboom.nl/trash"

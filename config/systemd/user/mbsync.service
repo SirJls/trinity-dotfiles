@@ -1,0 +1,10 @@
+[Unit]
+Description=Start mbsync as a daemon
+Documentation=man:mbsync(1)
+After=network.target
+
+[Service]
+Type=oneshot
+Environment="PATH=/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin"
+Environment="PASSWORD_STORE_DIR=%h/Dropbox/password-store"
+ExecStart=%h/Victoria/victoria_scripts/fetch-mail

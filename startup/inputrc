@@ -1,0 +1,27 @@
+$include /etc/inputrc
+
+set colored-stats on
+
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+set editing-mode vi
+$if mode=vi
+
+set keymap vi-command
+
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e.": yank-last-arg
+"\en": yank-nth-arg
+Control-l: clear-screen
+
+set keymap vi-insert
+
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e.": yank-last-arg
+"\en": yank-nth-arg
+Control-l: clear-screen
+
+$endif

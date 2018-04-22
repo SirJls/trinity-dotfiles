@@ -1,0 +1,17 @@
+# files
+
+msmtp/msmtprc
+isync/mbsyncrc
+startup/inputrc
+startup/xinitrc
+tmux/tmux.conf
+vim/vimrc
+zsh/zprofile
+zsh/zshenv
+zsh/zshrc
+
+# directories
+
+config
+abook
+mutt

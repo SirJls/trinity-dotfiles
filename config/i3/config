@@ -1,0 +1,171 @@
+# meta-key
+set $mod Mod4
+
+#font
+font pango:DejaVu Sans Mono 9
+
+# single meta-key bindings
+floating_modifier $mod
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# kill
+bindsym $mod+f fullscreen
+bindsym $mod+BackSpace exec xkill
+
+# re-focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+
+# focused movement
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+
+# workspace switching
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# workspace/container movement
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+bindsym $mod+Control+Mod1+h     move container to workspace prev_on_output
+bindsym $mod+Control+Mod1+l     move container to workspace next_on_output
+bindsym $mod+Control+Mod1+Left  move container to workspace prev_on_output
+bindsym $mod+Control+Mod1+Right move container to workspace next_on_output
+
+bindsym $mod+Mod1+h workspace prev_on_output
+bindsym $mod+Mod1+l workspace next_on_output
+
+bindsym $mod+Mod1+Left  workspace prev_on_output
+bindsym $mod+Mod1+Right workspace next_on_output
+
+# split windows vi{m}-style
+mode "window" {
+  bindsym s split v; mode "default"
+  bindsym v split h; mode "default"
+  bindsym Shift+comma  resize shrink width 10 px or 10 ppt
+  bindsym Shift+period resize grow   width 10 px or 10 ppt
+  bindsym Shift+equal  resize grow   height 10 px or 10 ppt
+  bindsym minus        resize shrink height 10 px or 10 ppt
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+w mode "window"
+
+# layouts
+bindsym $mod+comma  layout stacking
+bindsym $mod+period layout tabbed 
+bindsym $mod+slash  layout toggle split
+
+# floating
+bindsym $mod+Shift+space floating toggle
+
+# move focus to parent
+bindsym $mod+a focus parent
+
+# move in/out scratchpad
+bindsym $mod+Shift+t move scratchpad
+bindsym $mod+t            scratchpad show
+
+# cycle borders
+bindsym $mod+b border toggle
+
+# reload configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3
+bindsym $mod+Shift+r restart
+
+# exit i3
+bindsym $mod+Shift+e exec i3-msg exit
+
+# start a terminal
+bindsym $mod+Return exec st
+
+# start ranger
+bindsym $mod+r exec st -e ranger
+
+# make screenshot
+bindsym $mod+s exec screenie
+
+# dmenu
+bindsym $mod+d exec dmenu_run -p "Launch:" -l 10
+bindsym $mod+Shift+d exec i3-dmenu-desktop
+
+# show passes
+bindsym $mod+p exec dpass
+
+# volume controls
+bindsym XF86AudioMute exec pa-adjust mute
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%
+
+# backlight
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
+# lock-screen
+bindsym Mod1+Control+l exec i3lock -t -i ~/pictures/wallpapers/lockscreen/lockscreen-linux.png
+
+set $blue    #93B6FF
+set $gray    #282828
+set $gray1   #EEEEEC
+set $green   #B6FF93
+set $magenta #FFA0BE 
+set $yellow  #FFD378
+
+bar {
+        status_command statusbar-wm
+        position top
+        font pango:DejaVu Sans Mono 10
+        colors {
+            statusline $magenta
+            background $gray
+            inactive_workspace $gray $gray $gray1
+            active_workspace $gray $gray $green
+            focused_workspace $gray $gray $green
+        }
+}
+
+client.focused          $blue $blue #ffffff $blue $blue
+client.unfocused        $gray $gray #ffffff $gray $gray
+client.focused_inactive $gray $gray #ffffff $gray $gray
+
+default_border pixel 2
+
+
+workspace 1 output DP1

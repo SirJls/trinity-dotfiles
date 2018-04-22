@@ -1,0 +1,31 @@
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
+  for f in /etc/X11/xinit/xinitrc.d/*; do
+    [ -x "$f" ] && . "$f"
+  done
+  unset f
+fi
+
+if ( hash unclutter ); then
+	unclutter &
+fi
+
+if ( hash xset ); then
+	xset r rate 150 25
+	xset s off -dpms
+	xset s noblank
+fi
+
+if ( hash setxkbmap ); then
+	setxkbmap -option caps:escape &
+fi
+
+if ( hash autocutsel ); then
+	autocutsel -fork &
+	autocutsel -selection PRIMARY -fork &
+fi
+
+if ( hash xbacklight ); then
+	xbacklight -set 60%
+fi
+
+exec $HOME/scripts/startup-wm i3

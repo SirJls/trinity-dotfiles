@@ -1,0 +1,8 @@
+source ~/.mutt/colors/theme001
+
+set from      = "mail@sirjls.nl"
+set sendmail  = "/usr/bin/msmtp -a sirjls.nl"
+set mbox      = "+sirjls.nl/archive"
+set record    = "+sirjls.nl/sent"
+set postponed = "+sirjls.nl/draft"
+set trash     = "+sirjls.nl/trash"

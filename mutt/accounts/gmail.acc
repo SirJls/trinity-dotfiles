@@ -1,0 +1,10 @@
+source ~/.mutt/colors/theme001
+
+set from      = "jlssparreboom@gmail.com"
+set sendmail  = "/usr/bin/msmtp -a gmail.com"
+set mbox      = "+gmail.com/archive"
+set record    = "+gmail.com/sent"
+set postponed = "+gmail.com/draft"
+set trash     = "+gmail.com/trash"
+
+macro index S "<save-message>+gmail.com/spam<enter>"
