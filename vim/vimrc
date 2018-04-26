@@ -2,6 +2,7 @@ let &runtimepath .= ',' . expand('$HOME/dotfiles/vim')
 call plug#begin('$HOME/dotfiles/vim/plugged')
 
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'lervag/vimtex'
@@ -12,6 +13,10 @@ Plug 'w0rp/ale'
 Plug 'chrisbra/DistractFree'
 Plug 'joshdick/onedark.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'maralla/completor.vim'
+
 
 call plug#end()
 

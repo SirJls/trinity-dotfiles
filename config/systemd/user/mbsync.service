@@ -7,4 +7,4 @@ After=network.target
 Type=oneshot
 Environment="PATH=/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin"
 Environment="PASSWORD_STORE_DIR=%h/Dropbox/password-store"
-ExecStart=%h/Victoria/victoria_scripts/fetch-mail
+ExecStart=%h/scripts/fetch-mail

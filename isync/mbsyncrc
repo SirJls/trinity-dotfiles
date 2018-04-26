@@ -21,6 +21,14 @@ Sync All
 Expunge Both
 SyncState *
 
+Channel sync-gmail-inbox
+Master :gmail-remote:"[Gmail]/Inbox"
+Slave :gmail-local:gmail.com/inbox
+Create Both
+Sync All
+Expunge Both
+SyncState *
+
 Channel sync-gmail-trash
 Master :gmail-remote:"[Gmail]/Bin"
 Slave :gmail-local:gmail.com/trash
@@ -46,7 +54,7 @@ Expunge Both
 SyncState *
 
 Group sync-gmail
-Channel sync-gmail-all
+Channel sync-gmail-inbox
 Channel sync-gmail-trash
 Channel sync-gmail-spam
 Channel sync-gmail-sent

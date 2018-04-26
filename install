@@ -12,6 +12,7 @@ zsh/zshrc
 
 # directories
 
+weechat
 config
 abook
 mutt

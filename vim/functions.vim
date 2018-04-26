@@ -36,7 +36,7 @@ nnoremap <C-n> :call NumberToggle()<cr>
 
 """
 set colorcolumn=0
-let s:color_column_old = 80
+let s:color_column_old = 81
 
 function! s:ToggleColorColumn()
     if s:color_column_old == 0

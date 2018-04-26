@@ -18,9 +18,12 @@ MapToggle <F8> wrap
 
 nnoremap <silent> <leader>b :call FZFOpen(':Buffers')<CR>
 nnoremap <silent> <leader>c :call FZFOpen(':Commands')<CR>
-nnoremap <silent> <leader>l :call FZFOpen('Blines')<CR>
-nnoremap <silent> <leader>r :call FZFOpen('')<CR> 
-nnoremap <silent> <leader>f  :call FZFOpen(':Files')<CR>
+nnoremap <silent> <leader>h :call FZFOpen(':Helptags')<CR>
+nnoremap <silent> <leader>t :call FZFOpen(':BTags')<CR>
+nnoremap <silent> <leader>T :call FZFOpen(':Tags')<CR>
+nnoremap <silent> <leader>l :call FZFOpen(':BLines')<CR>
+nnoremap <silent> <leader>r :call FZFOpen(':History')<CR> 
+nnoremap <silent> <leader>f :call FZFOpen(':Files')<CR>
 
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)

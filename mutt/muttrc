@@ -119,7 +119,7 @@ macro index,pager <F5>  ":source ~/.mutt/muttrc\n"
 
 macro index \Cp         "<pipe-message>cat > ~/"
 macro index \Cr         "<tag-prefix><clear-flag>N"                                   
-macro index Z           "<shell-escape>/usr/bin/mbsync -c ~/.mbsync -q -a TTYUI<enter>"
+macro index Z           "<shell-escape>/usr/bin/mbsync -c ~/.mbsyncrc -q -a TTYUI<enter>"
 
 macro compose \Cg       "Fgpg --clearsign\ny"
 macro compose \Cp       "Fgpg --clearsign\ny^T^Uapplication/pgp; format=text; x-action=sign\n"

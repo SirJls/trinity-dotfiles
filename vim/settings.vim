@@ -74,3 +74,19 @@ let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 let g:fzf_files_options = '--preview "rougify {} | head -'.&lines.'"'
 
 let g:fzf_history_dir = '~/.fzf/fzf-history'
+
+let g:completor_clang_binary = '/usr/bin/clang'
+
+let g:validator_clang_tidy_binary = '/usr/bin/clang-tidy'
+let g:validator_c_checkers = ['clang-tidy']
+let g:validator_error_msg_format = "[ ● %d/%d issues ]"
+let g:validator_auto_open_quickfix = 1
+
+let g:gitgutter_sign_added = '•'
+let g:gitgutter_sign_removed = '•'
+
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+let g:EditorConfig_exec_path = '/usr/bin/editorconfig'
+
