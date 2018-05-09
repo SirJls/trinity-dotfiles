@@ -3,10 +3,10 @@ set backspace=2
 set clipboard+=unnamed
 set cursorline
 set dictionary+=/usr/share/dict/words
-set directory=~/.vim/swap
 set encoding=utf-8
 set linebreak
 set nobackup
+set noswapfile
 set nocompatible
 set nowrap
 set number
@@ -27,8 +27,8 @@ let g:vimsyn_noerror=1
 
 set pdev=Canon-MP2900-series
 
-set backupdir=$HOME/dotfiles/vim/backup/
-set directory=$HOME/dotfiles/vim/backup/
+" set backupdir=$HOME/dotfiles/vim/backup/
+" set directory=$HOME/dotfiles/vim/backup/
 
 set autoindent
 
@@ -90,3 +90,13 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 let g:EditorConfig_exec_path = '/usr/bin/editorconfig'
 
+let g:OmniSharp_server_path = '/opt/omnisharp-roslyn/omnisharp/OmniSharp.exe'
+let g:OmniSharp_selector_ui = 'fzf'
+
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '.'
+let g:ale_lint_on_enter = 0
+
+let g:snips_author = "Sjors Sparreboom"
+let g:snips_email =  "mail@sjorssparreboom.nl"
+let g:snips_github = "https://github.com/SirJls"

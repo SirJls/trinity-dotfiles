@@ -13,6 +13,7 @@
 !/msmtp/*
 !/mutt/**
 !/readonly/**
+!/spacemacs/**
 !/startup/*
 !/tmux/**
 !/vim/**

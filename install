@@ -9,6 +9,9 @@ vim/vimrc
 zsh/zprofile
 zsh/zshenv
 zsh/zshrc
+spacemacs/emacs
+spacemacs/spacemacs
+
 
 # directories
 

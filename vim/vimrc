@@ -17,6 +17,8 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'maralla/completor.vim'
 
+"Plug 'OmniSharp/omnisharp-vim'
+
 
 call plug#end()
 
