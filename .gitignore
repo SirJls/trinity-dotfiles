@@ -17,8 +17,10 @@
 !/startup/*
 !/tmux/**
 !/vim/**
+!/zsh/**
 !README.md
 !install
+/zsh/history
 /vim/autoload/*
 /vim/backup/*
 /vim/plugged/*

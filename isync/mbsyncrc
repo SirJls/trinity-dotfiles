@@ -13,9 +13,9 @@ CertificateFile /etc/ssl/certs/ca-certificates.crt
 IMAPStore gmail-remote
 Account gmail.com
 
-Channel sync-gmail-all
-Master :gmail-remote:"[Gmail]/All Mail"
-Slave :gmail-local:gmail.com/all
+Channel sync-gmail-inbox
+Master :gmail-remote:
+Slave :gmail-local:gmail.com/inbox
 Create Both
 Sync All
 Expunge Both

@@ -1,0 +1,117 @@
+zmodload zsh/complist
+
+autoload -U colors && colors
+zmodload zsh/complist
+
+function precmd {
+  vcs_info
+  LPROMPT
+}
+
+LPROMPT () {
+  PS1=""
+  PS1+="┌─[%{$fg[yellow]%}%m%{$fg_bold[blue]%}"
+  # PS1+="[%T]%F{red}%(?.. exited %1v)%F{reset}"
+  PS1+="%F{green}${vcs_info_msg_0_}%F{reset}"
+  PS1+="%~ %{$fg_no_bold[yellow]%}%(0?..%?)%{$reset_color%}]
+└─╼ "
+}
+
+function zle-line-init zle-keymap-select {
+  RPS1="%{$fg[yellow]%}${${KEYMAP/vicmd/%B Command Mode %b}/(main|viins)/ }%{$reset_color%}"
+  RPS2=$RPS1
+  zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+PROMPT_EOL_MARK=" •"
+
+fpath=(${HOME}/dotfiles/zsh/completion $fpath)
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' completer _complete _correct _approximate
+zstyle ':completion:*' expand prefix suffix
+zstyle ':completion:*' completer _expand_alias _complete _approximate
+zstyle ':completion:*' menu select
+zstyle ':completion:*' file-sort name
+zstyle ':completion:*' ignore-parents pwd
+zstyle ':completion:*' list-colors ${(s.:.)ls_colors}
+zstyle ':completion:*' matcher-list 'm:{a-za-z}={a-za-z}'
+
+zstyle ':completion:*:matches' group 'yes'
+zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*:options' auto-description '%d'
+zstyle ':completion:*:descriptions' format $'\e[01;33m -- %d --\e[0m'
+zstyle ':completion:*:messages' format $'\e[01;35m -- %d --\e[0m'
+zstyle ':completion:*:warnings' format $'\e[01;31m -- no matches found --\e[0m'
+zstyle ':completion:*' group-name ''
+
+zstyle ':completion:*:pacman:*' force-list always
+zstyle ':completion:*:*:pacman:*' menu yes select
+zstyle -e ':completion:*' hosts 'reply=(trinity)'
+zstyle :compinstall filename '${HOME}/.zshrc'
+
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
+  /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+
+mkdir -p "${HOME}/dotfiles/zsh/history" &>/dev/null
+touch "${HOME}/dotfiles/zsh/history/histfile" &>/dev/null
+export HISTFILE="${HOME}/dotfiles/zsh/history/histfile"
+export HISTSIZE=10000
+export SAVEHIST=$((HISTSIZE/2))
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_VERIFY
+setopt INC_APPEND_HISTORY
+setopt EXTENDED_HISTORY
+
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
+setopt autocd extendedglob nomatch completealiases
+setopt correct
+setopt no_correctall
+
+bindkey -v
+KEYTIMEOUT=1
+
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+
+zle -A kill-whole-line vi-kill-line
+zle -A backward-kill-word vi-backward-kill-word
+zle -A backward-delete-char vi-backward-delete-char
+
+bindkey "^R" history-incremental-search-backward
+bindkey "^[[A" history-beginning-search-backward-end
+bindkey "^[[B" history-beginning-search-forward-end
+bindkey "\e." insert-last-word
+bindkey "\eq" quote-line
+bindkey "\ek" backward-kill-line
+
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+
+autoload -U url-quote-magic
+zstyle ':urlglobber' url-other-schema ftp git http https magnet
+zstyle ':url-quote-magic:*' url-metas '*?[]^(|)~#='
+zle -N self-insert url-quote-magic
+
+autoload bashcompinit
+bashcompinit
+
+eval $(dircolors -b ${HOME}/dotfiles/readonly/dir-colors)
+
+if [[ -d "${HOME}/dotfiles/zsh" ]]; then
+  for file in "${HOME}/dotfiles/zsh/configs/"*.zsh; do
+    source "$file"
+  done
+fi

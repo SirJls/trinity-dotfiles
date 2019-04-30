@@ -32,9 +32,9 @@ set pdev=Canon-MP2900-series
 
 set autoindent
 
-set tabstop=8
-set shiftwidth=8
-set softtabstop=8
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set textwidth=80
 set noexpandtab
 
@@ -54,49 +54,24 @@ colorscheme onedark
 
 if &diff | syntax off | endif
 
+augroup mail_trailing_whitespace " {
+	autocmd!
+	autocmd FileType mail setlocal formatoptions+=w
+augroup END " }
+
 if has("autocmd")
-    " default to text
-    autocmd BufEnter * if &filetype == "" | setlocal ft=text | endif
-    " settings for specific filetypes
-    autocmd BufRead *.txt set tw=80
-    autocmd FileType text setlocal spell
-    autocmd BufRead,BufNewFile *.tex,*.markdown,*.md,*.txt set spell
-    autocmd BufRead,BufNewFile ~/.mutt/temp/mutt-* set ft=mail wrap lbr nolist spell tw=0 wm=0
-    autocmd BufRead *.markdown,*tex call DistractFree#DistractFreeToggle() | wincmd w
-    " always jump to the last cursor position
-    autocmd BufReadPost * if line("'\"")>0 && line("'\"")<=line("$") | exe "normal g`\""|endif
+	" default to text
+	autocmd BufEnter * if &filetype == "" | setlocal ft=text | endif
+	" settings for specific filetypes
+	autocmd BufRead *.txt set tw=80
+	autocmd FileType text setlocal spell
+	autocmd BufRead,BufNewFile *.tex,*.markdown,*.md,*.txt set spell
+	autocmd BufRead,BufNewFile ~/.mutt/temp/mutt-* set ft=mail wrap lbr nolist spell tw=0 wm=0
+	autocmd BufRead *.markdown,*tex call DistractFree#DistractFreeToggle() | wincmd w
+	" always jump to the last cursor position
+	autocmd BufReadPost * if line("'\"")>0 && line("'\"")<=line("$") | exe "normal g`\""|endif
 endif
 
-let g:distractfree_width = '75%'
-let g:distractfree_keep_options = 'textwidth=80'
-
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
-let g:fzf_files_options = '--preview "rougify {} | head -'.&lines.'"'
-
-let g:fzf_history_dir = '~/.fzf/fzf-history'
-
-let g:completor_clang_binary = '/usr/bin/clang'
-
-let g:validator_clang_tidy_binary = '/usr/bin/clang-tidy'
-let g:validator_c_checkers = ['clang-tidy']
-let g:validator_error_msg_format = "[ ● %d/%d issues ]"
-let g:validator_auto_open_quickfix = 1
-
-let g:gitgutter_sign_added = '•'
-let g:gitgutter_sign_removed = '•'
-
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-let g:EditorConfig_exec_path = '/usr/bin/editorconfig'
-
-let g:OmniSharp_server_path = '/opt/omnisharp-roslyn/omnisharp/OmniSharp.exe'
-let g:OmniSharp_selector_ui = 'fzf'
-
-let g:ale_sign_error = '●'
-let g:ale_sign_warning = '.'
-let g:ale_lint_on_enter = 0
-
-let g:snips_author = "Sjors Sparreboom"
-let g:snips_email =  "mail@sjorssparreboom.nl"
-let g:snips_github = "https://github.com/SirJls"
+let g:slime_target = "tmux"
+let g:slime_paste_file = tempname()
+let g:hdevtools_stack = 1

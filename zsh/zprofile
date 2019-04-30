@@ -1,0 +1,17 @@
+declare -U path
+path=(${HOME}/scripts ${HOME}/.local/bin $path)
+
+if [[ -z $(pidof ssh-agent) && -z $(pidof gpg-agent) ]]; then
+	eval $(/usr/bin/keychain --eval -Q -q --nogui --agents "ssh,gpg" trinity 36BEBC5B)
+	[[ -z $HOSTNAME ]] && HOSTNAME=$(uname -n)
+	[[ -f $HOME/.keychain/${HOSTNAME}-sh ]] && source "${HOME}/.keychain/${HOSTNAME}-sh"
+	[[ -f $HOME/.keychain/${HOSTNAME}-sh ]] && source "${HOME}/.keychain/$HOSTNAME-sh-gpg"
+fi
+
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+        # /home/trinity/scripts/startup-wm sway       UNCOMMENT ONLY WHEN USING WAYLAND
+        exec startx -- vt1 -keeptty &>/dev/null
+	logout
+elif [[ $(tty) = /dev/tty2 ]]; then
+	tmux new -s secured
+fi

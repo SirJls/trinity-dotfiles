@@ -4,22 +4,13 @@ call plug#begin('$HOME/dotfiles/vim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'plasticboy/vim-markdown'
-Plug 'lervag/vimtex'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'w0rp/ale'
-Plug 'chrisbra/DistractFree'
 Plug 'joshdick/onedark.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'maralla/completor.vim'
-
-"Plug 'OmniSharp/omnisharp-vim'
-
-
+Plug 'vim-syntastic/syntastic'
+Plug 'jpalardy/vim-slime'
+Plug 'bitc/vim-hdevtools'
+Plug 'eagletmt/ghcmod-vim'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 call plug#end()
 
 syntax on
