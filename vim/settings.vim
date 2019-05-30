@@ -50,7 +50,8 @@ set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 set laststatus=2
 set cmdheight=1
 
-colorscheme onedark
+set background=dark
+colorscheme gruvbox
 
 if &diff | syntax off | endif
 
@@ -71,7 +72,3 @@ if has("autocmd")
 	" always jump to the last cursor position
 	autocmd BufReadPost * if line("'\"")>0 && line("'\"")<=line("$") | exe "normal g`\""|endif
 endif
-
-let g:slime_target = "tmux"
-let g:slime_paste_file = tempname()
-let g:hdevtools_stack = 1

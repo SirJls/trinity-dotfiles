@@ -1,9 +1,0 @@
-source ~/.mutt/colors/theme001
-
-set from      = "0890040@hr.nl"
-set sendmail  = "/usr/bin/msmtp -a hr.nl"
-
-set mbox      = "+hr.nl/archive"
-set record    = "+hr.nl/sent"
-set postponed = "+hr.nl/draft"
-set trash     = "+hr.nl/trash"

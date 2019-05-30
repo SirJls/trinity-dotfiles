@@ -5,12 +5,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'joshdick/onedark.vim'
+Plug 'morhetz/gruvbox'
 Plug 'vim-syntastic/syntastic'
-Plug 'jpalardy/vim-slime'
-Plug 'bitc/vim-hdevtools'
-Plug 'eagletmt/ghcmod-vim'
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 syntax on

@@ -1,8 +1,0 @@
-virtual-mailboxes "archive" "notmuch://?query=tag:archive"
-virtual-mailboxes "classroom" "notmuch://?query=tag:classroom"
-virtual-mailboxes "important" "notmuch://?query=tag:starred"
-virtual-mailboxes "inbox" "notmuch://?query=tag:inbox"
-virtual-mailboxes "newsletters" "notmuch://?query=tag:newsletters"
-virtual-mailboxes "sent" "notmuch://?query=tag:sent"
-virtual-mailboxes "todo" "notmuch://?query=tag:todo"
-virtual-mailboxes "trash" "notmuch://?query=tag:deleted"

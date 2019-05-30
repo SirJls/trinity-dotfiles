@@ -27,3 +27,5 @@ map <silent> te :GhcModTypeClear<CR>
 autocmd FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
 autocmd FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 autocmd FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
+
+map <Leader>f :FZF<CR>
